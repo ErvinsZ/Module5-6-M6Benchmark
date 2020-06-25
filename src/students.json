@@ -1,0 +1,11 @@
+[
+    {"id": 1, 
+"name": "Ervins",
+"surname":"Zagars",
+"email": "ervins.zagars@gmail.com",
+"DOB": "16AUG1995"},
+ {"id": 2, "name": "Student2",
+"surname":"Student2Surname",
+"email": "student2@gmail.com",
+ "DOB": "01JAN2020"}
+]
