@@ -1,7 +1,7 @@
 const express = require("express")
 const fs = require("fs")
 const path = require("path")
-
+const uniqid = require("uniqid")
 const router = express.Router()
 
 const studentsFilePath = path.join(__dirname, "students.json")
@@ -28,7 +28,17 @@ router.get("/:id", (request, response) => {
     response.send(student)
 })
 
-router.post("/", (request, response) => {})
+router.post("/", (request, response) => {
+    console.log(request.body)
+    const newUser = request.body
+
+    const fileContent = fs.readFileSync(studentsFilePath)
+    const studentsArray = JSON.parse(fileContent.toString())
+
+    studentsArray.push(newUser)
+
+    response.send(request.body)
+})
 
 router.put("/:id", (request, response) => {})
 
