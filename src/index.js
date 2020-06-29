@@ -30,14 +30,18 @@ router.get("/:id", (request, response) => {
 
 router.post("/", (request, response) => {
     console.log(request.body)
-    const newUser = request.body
+    const newUser = {...request.body, id: uniqid()}
 
     const fileContent = fs.readFileSync(studentsFilePath)
     const studentsArray = JSON.parse(fileContent.toString())
 
+    const newId = uniqid()
+
     studentsArray.push(newUser)
 
-    response.send(request.body)
+fs.writeFileSync(studentsFilePath, JSON.stringify(studentsArray))
+
+    response.status(201).send("OK")
 })
 
 router.put("/:id", (request, response) => {})

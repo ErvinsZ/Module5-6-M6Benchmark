@@ -1,11 +1,1 @@
-[
-    {"id": 1, 
-"name": "Ervins",
-"surname":"Zagars",
-"email": "ervins.zagars@gmail.com",
-"DOB": "16AUG1995"},
- {"id": 2, "name": "Student2",
-"surname":"Student2Surname",
-"email": "student2@gmail.com",
- "DOB": "01JAN2020"}
-]
+[{"name":"Stefano","id":"a0ad1ugkbv6ah4i"},{"name":"Erkin","surname":"Something","dob":"01.03.2020","id":"a0adhzskbv6far9"},{"name":"Sintija","surname":"Zagare","dob":"01.03.2020","id":"a0adcu4kbz9s4te"}]
