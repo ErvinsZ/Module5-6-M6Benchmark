@@ -4,6 +4,9 @@ const cors = require("cors")
 const listEndpoints = require("express-list-endpoints")
 const productsRouter = require("./services/products")
 const reviewsRouter = require("./services/reviews")
+const yaml = require("yamljs")
+const swaggerUi = require("swagger-ui-express")
+
 const {
   catchAllHandler,
   forbiddenHandler,
@@ -16,6 +19,12 @@ const port = 3001
 
 server.use(express.json())
 server.use(cors())
+
+const swaggerDoc = yaml.load(join(__dirname, "apiDocs.yml"))
+
+server.use("/docs",swaggerUi.serve, swaggerUi.setup(swaggerDoc))
+
+
 
 //make the content of the images folder available
 server.use("/images", express.static(path.join(__dirname, "images")))
