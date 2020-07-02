@@ -12,7 +12,7 @@ const {
 } = require("./errorHandlers")
 
 const server = express()
-const port = process.env.PORT
+const port = 3001
 
 server.use(express.json())
 server.use(cors())
