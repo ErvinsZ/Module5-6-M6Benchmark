@@ -1,4 +1,5 @@
 const express = require("express")
+const q2m = require("query-to-mongo")
 const studentSchema = require("./schema")
 const fs = require("fs")
 const path = require("path")
@@ -10,8 +11,15 @@ const studentsFilePath = path.join(__dirname, "students.json")
 
 router.get("/", async (req, res, next) => {
     try {
-        const students = await studentSchema.find(req.query)
-        res.send(students)
+      const query = q2m(req.query)
+        const students = await studentSchema.find(query.criteria, query.options.fields)
+        .skip(query.options.skip)
+        .limit(query.options.limit)
+        .sort(query.options.sort)
+        res.send({
+          data: students,
+          total: students.length,
+        })
       } catch (error) {
         next(error)
       }
