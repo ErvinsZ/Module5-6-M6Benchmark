@@ -3,7 +3,7 @@ const {Schema, model} = require("mongoose")
 const productSchema = new Schema({
     name: {
         type:  String,
-        required: true
+        required: true,
     },
     description: {
         type:  String,
@@ -25,7 +25,7 @@ const productSchema = new Schema({
     category: {
         type:  String,
         required: false
-    }  
+    }
 
 })
 

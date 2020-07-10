@@ -1,6 +1,7 @@
 const express = require("express")
 const productsRoutes = require("./index")
 const mongoose = require("mongoose")
+const reviewsRoutes = require("./reviews/index")
 
 const cors = require("cors")
 
@@ -19,6 +20,7 @@ server.use(express.json())
 
 
 server.use("/products", productsRoutes)
+server.use("/reviews", reviewsRoutes)
 
 
 

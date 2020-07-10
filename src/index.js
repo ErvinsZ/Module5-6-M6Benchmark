@@ -1,11 +1,8 @@
 const express = require("express")
 const q2m = require("query-to-mongo")
 const productSchema = require("./schema")
-const fs = require("fs")
-const path = require("path")
-const uniqid = require("uniqid")
 const router = express.Router()
-const productsFilePath = path.join(__dirname, "products.json")
+
 
 
 router.get("/", async (req, res, next) => {
