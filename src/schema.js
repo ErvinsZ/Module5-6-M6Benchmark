@@ -29,4 +29,6 @@ const productSchema = new Schema({
 
 })
 
+productSchema.set('timestamps', true);
+
 module.exports  = model("Product", productSchema)

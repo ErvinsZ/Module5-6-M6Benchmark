@@ -20,7 +20,7 @@ router.get("/", async (req, res, next) => {
       }
 })
 
-router.get("/:id", async(req, res, next) => {
+router.get("/:id/reviews", async(req, res, next) => {
     try {
         const id = req.params.id
         const review = await reviewSchema.findById(id)
@@ -37,7 +37,7 @@ router.get("/:id", async(req, res, next) => {
       }
 })
 
-router.post("/", async (req, res, next) => {
+router.post("/:id/reviews", async (req, res, next) => {
   try{
    const newReview = new reviewSchema(req.body)
    const response = await newReview.save()

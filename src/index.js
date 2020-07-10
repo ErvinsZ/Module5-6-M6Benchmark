@@ -54,7 +54,7 @@ router.put("/:id", async(req, res, next) => {
         const product = await productSchema.findByIdAndUpdate(req.params.id, req.body)
         console.log(product)
         if (product) {
-          res.send("Ok")
+          res.send(product)
         } else {
           const error = new Error(`product with id ${req.params.id} not found`)
           error.httpStatusCode = 404
