@@ -20,8 +20,7 @@ class App extends React.Component{
       name: this.state.name,
       surname: this.state.surname,
       email: this.state.email,
-      dateOfBirth: this.state.dateOfBirth,
-      country: this.state.country
+      dob: this.state.dateOfBirth,
     }
     const resp = await fetch("http://localhost:3003/students",{
       method: "POST",
@@ -33,7 +32,7 @@ class App extends React.Component{
 
     
     if (resp.ok) {
-      const newStudent = await resp.data.json()
+      const newStudent = await resp.json()
       this.setState({
         students: this.state.students.concat(newStudent)
       })
@@ -70,8 +69,7 @@ class App extends React.Component{
 
   componentDidMount = async () => {
     const res = await fetch ("http://localhost:3003/students")
-    const json = await res.json()
-    const students = await json.data
+    const students = await res.json()
     console.log(students)
     this.setState({
       students: students 
