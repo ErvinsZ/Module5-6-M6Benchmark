@@ -17,9 +17,9 @@ router.post("/import", async (req, res) => {
     students.forEach(async student => { 
         if (idList.indexOf(student.id) === -1){ 
            
-            await db.query(`INSERT INTO "students" (id, name, surname, email, dob) 
-                                                Values ($1, $2, $3, $4, $5)`, 
-                                                [ student.id, student.name, student.surname, student.email, student.dob])
+            await db.query(`INSERT INTO "students" (name, surname, email, dob) 
+                                                Values ($1, $2, $3, $4)`, 
+                                                [student.name, student.surname, student.email, student.dob])
             total++ 
         } 
         else { 
@@ -82,10 +82,10 @@ router.get("/:id", async (req, res)=>{
 })
 
 router.post("/", async (req, res)=> {
-    const response = await db.query(`INSERT INTO "students" (id, name, surname, email, dob) 
-                                     Values ($1, $2, $3, $4, $5)
+    const response = await db.query(`INSERT INTO "students" (name, surname, email, dob) 
+                                     Values ($1, $2, $3, $4)
                                      RETURNING *`, 
-                                    [ req.body.id, req.body.name, req.body.surname, req.body.email, req.body.dob ])
+                                    [req.body.name, req.body.surname, req.body.email, req.body.dob ])
     
     console.log(response)
     res.send(response.rows[0])
