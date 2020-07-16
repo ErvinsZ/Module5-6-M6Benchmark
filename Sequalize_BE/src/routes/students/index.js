@@ -22,9 +22,6 @@ router.get("/", async (req, res) => {
             },
             offset: offset,
             limit: limit,
-            order: [
-                ["name", order]
-            ],
             include: Project
         })
         res.send(students)

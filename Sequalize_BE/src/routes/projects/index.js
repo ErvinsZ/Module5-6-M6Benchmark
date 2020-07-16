@@ -30,7 +30,7 @@ router.post("/:id", async (req,res)=>{
     }
 })
 
-router.put("/:projectid", async (req, res)=>{
+router.put("/:projectId", async (req, res)=>{
     try{
         delete req.body.studentid 
         delete req.body.id 
@@ -54,7 +54,7 @@ router.put("/:projectid", async (req, res)=>{
     }
 })
 
-router.delete("/:projectid", async (req, res)=>{
+router.delete("/:projectId", async (req, res)=>{
     try{
         res.send(await Project.destroy({
             where: { id: req.params.projectid }
