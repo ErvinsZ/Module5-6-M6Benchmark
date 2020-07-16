@@ -17,7 +17,7 @@ router.post("/import", async (req, res) => {
     students.forEach(async student => { 
         if (idList.indexOf(student.id) === -1){ 
            
-            await db.query(`INSERT INTO "students" (name, surname, email, dob) 
+            await db.query(`INSERT INTO "students" (sname, surname, email, dob) 
                                                 Values ($1, $2, $3, $4)`, 
                                                 [student.name, student.surname, student.email, student.dob])
             total++ 
