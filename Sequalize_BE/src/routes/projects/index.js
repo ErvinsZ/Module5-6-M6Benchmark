@@ -19,7 +19,7 @@ router.get("/:id", async (req, res)=>{
 
 router.post("/:id", async (req,res)=>{
     try{
-        res.send(await Review.create({
+        res.send(await Project.create({
             ...req.body,
             studentid: req.params.id
         }))
@@ -56,7 +56,7 @@ router.put("/:projectid", async (req, res)=>{
 
 router.delete("/:projectid", async (req, res)=>{
     try{
-        res.send(await Review.destroy({
+        res.send(await Project.destroy({
             where: { id: req.params.projectid }
         }))
     }
