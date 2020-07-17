@@ -13,7 +13,10 @@ router.get("/", async(req, res)=>{
     delete req.query.offset
     delete req.query.limit
 
-    let query = 'SELECT * FROM "products" '
+    let query = `SELECT * FROM products  LEFT JOIN LATERAL 
+                (  SELECT json_agg(json_build_object('id', reviews.id
+                , 'comment', reviews.comment)) AS reviews  FROM   reviews  
+                WHERE  products.id = "productid") reviews ON true`
 
     const params = []
     for (queryParam in req.query){
