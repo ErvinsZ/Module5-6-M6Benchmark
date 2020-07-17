@@ -14,7 +14,7 @@ server.get("/", (req, res)=>{
     res.send("The server is running")
 })
 
- server.use("/products", productRouter)
-// server.use("/review", reviewRouter)
+server.use("/products", productRouter)
+server.use("/reviews", reviewRouter)
 
 server.listen(process.env.PORT || 3003, () => console.log("Running on ", process.env.PORT || 3003))
