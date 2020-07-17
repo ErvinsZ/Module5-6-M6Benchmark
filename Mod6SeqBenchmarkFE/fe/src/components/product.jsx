@@ -7,7 +7,7 @@ class Product extends Component {
         const { name, description, brand, imageurl, price} = this.props.item
         return (
             <Col md={4}>
-                <Card >
+                <Card style={{height:"430px"}}>
                 <Card.Img variant="top" src={imageurl} style={{height:"250px", width:"auto"}}/>
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
