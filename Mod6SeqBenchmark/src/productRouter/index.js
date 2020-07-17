@@ -15,7 +15,7 @@ router.get("/", async(req, res)=>{
 
     let query = `SELECT * FROM products  LEFT JOIN LATERAL 
                 (  SELECT json_agg(json_build_object('id', reviews.id
-                , 'comment', reviews.comment)) AS reviews  FROM   reviews  
+                , 'comment', reviews.comment, 'rate', reviews.rate)) AS reviews  FROM   reviews  
                 WHERE  products.id = "productid") reviews ON true`
 
     const params = []
