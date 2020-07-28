@@ -5,10 +5,27 @@ const router = express.Router()
 
 
 
+// router.get("/", async (req, res, next) => {
+//     try {
+//       const query = q2m(req.query)
+//         const products = await productSchema.find(query.criteria, query.options.fields)
+//         .skip(query.options.skip)
+//         .limit(query.options.limit)
+//         .sort(query.options.sort)
+//         res.send({
+//           data: products,
+//           total: products.length,
+//         })
+//       } catch (error) {
+//         next(error)
+//       }
+// })
+
 router.get("/", async (req, res) => {
   const products = await productSchema.find()
   res.send(products)
 })
+
 router.get("/:id", async(req, res, next) => {
     try {
         const id = req.params.id

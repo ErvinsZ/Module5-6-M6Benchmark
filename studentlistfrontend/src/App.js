@@ -51,6 +51,7 @@ class App extends React.Component{
          </div>)}
          </Col>
          <Col>
+         
          <FormControl type="text" value={this.state.name} placeholder="Name" onChange={e => this.setState({name: e.currentTarget.value})}/>
          <FormControl type="text" value={this.state.surname} placeholder="Surname" onChange={e => this.setState({surname: e.currentTarget.value})}/>
          <FormControl type="text" value={this.state.email} placeholder="Email" onChange={e => this.setState({email: e.currentTarget.value})}/>
